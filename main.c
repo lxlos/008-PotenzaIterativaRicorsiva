@@ -14,18 +14,33 @@ int main(int argc, char** argv) {
     scanf("%d", &esponente);
     
     rIterativo = potenzaIterativa(base, esponente);
-    rRicorsivo = potenzaIterativa(base, esponente);
+    rRicorsivo = potenzaRicorsiva(base, esponente);
     
     printf("%d^%d = %d (formulazione iterativa)\n", base, esponente, rIterativo);
-    printf("%d^%d = %d (formulazione iterativa)\n", base, esponente, rRicorsivo);
+    printf("%d^%d = %d (formulazione ricorsiva)\n", base, esponente, rRicorsivo);
     return (EXIT_SUCCESS);
 }
 
 int potenzaIterativa(int base, int esponente) {
-    // TODO Implementa il corpo della funzione
-    return -1;
+      int risultato;
+    risultato=1;
+    while(esponente>0){
+        risultato=risultato*base;
+        esponente=esponente-1;
+                
+    }
+    
+    return risultato;
+    
 }
-int potenzaIterativa(int base, int esponente) {
-    // TODO Implementa il corpo della funzione
-    return -1;
+int potenzaRicorsiva(int base, int esponente) {
+    int risultato;
+    if(esponente==0) {
+        return 1;
+    }
+    else {
+        risultato=base*potenzaRicorsiva(base,esponente-1);
+        return risultato;
+   
+}
 }
